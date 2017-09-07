@@ -38,8 +38,13 @@ function RefXBlock(runtime, element) {
             url: handlerUrl1,
             data: JSON.stringify({"data": data}),
             success: function(result){
-                location.reload(true);
+                window.location.reload(false);
             }
         });
+    });
+
+
+    $(element).find('.cancel-button').bind('click', function() {
+        runtime.notify('cancel', {});
     });
 }

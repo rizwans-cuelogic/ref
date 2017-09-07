@@ -1,16 +1,9 @@
 b {
     font-family: monospace;
-    font-size: 17px;
 }
 
 p {
-    /* margin-top: 3px; */
-    font-size: 17px;
     font-family: sans-serif;
-}
-
-li.field-list {
-    margin-bottom: 10px;
 }
 
 h1.margin-left {

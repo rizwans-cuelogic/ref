@@ -4,7 +4,7 @@
     <article class="content-primary" role="main">
         <fieldset class="background-white">
         <h2>Reference<h2>
-        <ol class="reference-list">
+        <ul class="reference-list">
             <li class="field-list">
               <b>Name:</b><p>{{ reference_name }}</p>
             </li>
@@ -15,12 +15,12 @@
               <b>Description:</b><p>{{ reference_description}}</p>
             </li>
             <li class="field-list" >
-              <b>Type:</b><p>${ reference_type }}</p>
+              <b>Type:</b><p>${{ reference_type }}</p>
             </li>
             <li class="field-list">
               <b>Status:</b><p>{{ reference_status }}</p>
             </li>
-        </ol>
+        </ul>
         </fieldset>
     </article>
 </section>
