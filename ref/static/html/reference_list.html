@@ -1,11 +1,28 @@
 {% autoescape off %}
-<div>
-<h2>References</h2>
-
-<p>{{ reference_name }}</p>
-<p>{{ reference_description }}</p>
-<p>{{ reference_link }}</p>
-<p>{{ reference_status }}</p>
-<p>{{ reference_type }}</p>
+<div class="wrapper-content wrapper">
+  <section class="content">
+    <article class="content-primary" role="main">
+        <fieldset class="background-white">
+        <ol class="reference-list">
+            <li class="field-list">
+              <b>Name:</b><p>{{ reference_name }}</p>
+            </li>
+            <li class="field-list" >
+              <b>Link:</b><p><a href="{{ a.reference_link }}">{{ reference_link }}</a></p>
+            </li>
+            <li class="field-list">
+              <b>Description:</b><p>{{ reference_description}}</p>
+            </li>
+            <li class="field-list" >
+              <b>Type:</b><p>${ reference_type }}</p>
+            </li>
+            <li class="field-list">
+              <b>Status:</b><p>{{ reference_status }}</p>
+            </li>
+        </ol>
+        </fieldset>
+    </article>
+</section>
 </div>
+
 {% endautoescape %}
