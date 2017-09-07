@@ -28,6 +28,7 @@ class RefXBlock(StudioEditableXBlockMixin,XBlock):
     reference_description = String(display_name = "Reference Description",multiline_editor=True,default=None,Scope=Scope.content)
     reference_status = String(display_name = "Reference Status",default=None,Scope=Scope.content)
 
+    editable_fields = ('reference_name', 'reference_type','reference_description','reference_link','reference_status')
     def resource_string(self, path):
         """Handy helper for getting resources from our kit."""
         data = pkg_resources.resource_string(__name__, path)
@@ -46,21 +47,20 @@ class RefXBlock(StudioEditableXBlockMixin,XBlock):
     #     frag.initialize_js('RefXBlock')
     #     return frag
 
-    # def student_view(self,context=None):
-    #     context = {
-    #         'reference_name': self.reference_name,
-    #         'reference_description': self.reference_description,
-    #         'reference_status': self.reference_status,
-    #         'reference_link': self.reference_link,
-    #         'reference_type':self.reference_type
-    #     }
-    #     fragment = Fragment()
-    #     fragment.add_content(loader.render_template('/static/html/reference_list.html', context))
-    #     # fragment.add_css_url(self.runtime.local_resource_url(self, 'public/css/image_explorer.css'))
-    #     # fragment.add_javascript(self.resource_string("static/js/src/ref.js"))        
-    #     return fragment        
+    def student_view(self,context=None):
+        context = {
+            'reference_name': self.reference_name,
+            'reference_description': self.reference_description,
+            'reference_status': self.reference_status,
+            'reference_link': self.reference_link,
+            'reference_type':self.reference_type
+        }
+        fragment = Fragment()
+        fragment.add_content(loader.render_template('/static/html/reference_list.html', context))
+        fragment.add_css(self.resource_string("static/css/ref_list.css"))        
+        return fragment        
 
-    def student_view(self, context=None):
+    def studio_view(self, context=None):
         """
         Editing view in Studio
         """
