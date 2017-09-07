@@ -47,7 +47,7 @@ class RefXBlock(XBlock):
     #     frag.initialize_js('RefXBlock')
     #     return frag
 
-    def studio_view(self,context=None):
+    def student_view(self,context=None):
         context = {
             'reference_name': self.reference_name,
             'reference_description': self.reference_description,
@@ -60,7 +60,7 @@ class RefXBlock(XBlock):
         fragment.add_css(self.resource_string("static/css/ref_list.css"))        
         return fragment        
 
-    def student_view(self, context=None):
+    def studio_view(self, context=None):
         """
         Editing view in Studio
         """
