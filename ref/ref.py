@@ -8,8 +8,8 @@ from xblock.fragment import Fragment
 from .utils import loader
 from xblockutils.studio_editable import StudioEditableXBlockMixin
 
-@XBlock.needs("i18n")
-class RefXBlock(StudioEditableXBlockMixin,XBlock):
+
+class RefXBlock(XBlock):
     """
     TO-DO: document what your XBlock does.
     """
@@ -25,10 +25,10 @@ class RefXBlock(StudioEditableXBlockMixin,XBlock):
     reference_name = String(display_name = "Reference Name",default=None,Scope=Scope.content)
     reference_type = String(display_name = "Reference Type",default=None,Scope=Scope.content )
     reference_link = String(display_name = "Reference Link",default=None,Scope=Scope.content)
-    reference_description = String(display_name = "Reference Description",multiline_editor=True,default=None,Scope=Scope.content)
+    reference_description = String(display_name = "Reference Description",default=None,Scope=Scope.content)
     reference_status = String(display_name = "Reference Status",default=None,Scope=Scope.content)
 
-    editable_fields = ('reference_name', 'reference_type','reference_description','reference_link','reference_status')
+   
     def resource_string(self, path):
         """Handy helper for getting resources from our kit."""
         data = pkg_resources.resource_string(__name__, path)
@@ -47,7 +47,7 @@ class RefXBlock(StudioEditableXBlockMixin,XBlock):
     #     frag.initialize_js('RefXBlock')
     #     return frag
 
-    def student_view(self,context=None):
+    def studio_view(self,context=None):
         context = {
             'reference_name': self.reference_name,
             'reference_description': self.reference_description,
@@ -60,7 +60,7 @@ class RefXBlock(StudioEditableXBlockMixin,XBlock):
         fragment.add_css(self.resource_string("static/css/ref_list.css"))        
         return fragment        
 
-    def studio_view(self, context=None):
+    def student_view(self, context=None):
         """
         Editing view in Studio
         """
@@ -84,6 +84,7 @@ class RefXBlock(StudioEditableXBlockMixin,XBlock):
         An example handler, which increments the data.
         """
         # Just to show data coming in..
+
         self.reference_name=data['data']['reference_name']
         self.reference_type=data['data']['reference_type']
         self.reference_description=data['data']['reference_description']

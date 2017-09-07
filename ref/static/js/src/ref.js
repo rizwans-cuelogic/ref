@@ -22,7 +22,6 @@ function RefXBlock(runtime, element) {
     });
 
     $( "#submit" ).click(function() {
-        debugger;
         reference_name = $('#id_reference_name').val()
         reference_type = $('#id_reference_type').val()
         reference_description = $('#id_reference_description').val()
@@ -39,7 +38,7 @@ function RefXBlock(runtime, element) {
             url: handlerUrl1,
             data: JSON.stringify({"data": data}),
             success: function(result){
-                
+                location.reload(true);
             }
         });
     });

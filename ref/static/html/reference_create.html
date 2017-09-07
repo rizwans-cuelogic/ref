@@ -1,37 +1,57 @@
-<article class="content-primary" role="main">
-    <fieldset>
-    <ol class="list-input">
-        <li class="field text required" id="field-name">
-          <label>Reference Name</label>
-          <input id="id_reference_name" name="reference_name" placeholder="Enter Reference Name" type="text" value="{{ reference_name }}">
-        </li>
-        <li>
-          <label>Reference Link</label>
-          <input id="id_reference_link" name="reference_link" placeholder="Enter Reference Link" type="text" value="{{ reference_link }}">
-        </li>
-        <li>
-          <label>Reference Description</label>
-          <input id="id_reference_description" name="reference_description" placeholder="Enter Reference Description" type="text" value="{{ reference_description }}">
-        </li>
-        <li>
-          <label>Reference Type</label>
-          <select id="id_reference_type" name="reference_type" value="{{ reference_type }}">
-            <option value="IMAGE">IMAGE</option>
-            <option value="LINK">LINK</option>
-            <option value="AUDIO">AUDIO</option>
-            <option value="DOCUMENT">DOCUMENT</option>
+{% load i18n %}
+
+<!-- TODO: Replace by default edit view once available in Studio -->
+<div class="wrapper-comp-settings is-active editor-with-buttons" id="settings-tab">
+  <ul class="list-input settings-list">
+      <li class="field comp-setting-entry is-set">
+          <div class="wrapper-comp-setting">
+            <label class="label setting-label" for="id_reference_name">Reference Name</label>
+            <input class="input setting-input edit-display-name" id="id_reference_name" value="{{ reference_name }}" type="text">
+          </div>
+          <span class="tip setting-help">{% trans "The title of Reference" %}</span>
+      </li>
+      <li class="field comp-setting-entry is-set">
+          <div class="wrapper-comp-setting">
+            <label class="label setting-label" for="id_reference_description">Reference Description</label>
+            <input class="input setting-input edit-display-name" id="id_reference_description" value="{{ reference_description }}" type="text">
+          </div>
+      </li>
+      <li class="field comp-setting-entry is-set">
+          <div class="wrapper-comp-setting">
+            <label class="label setting-label" for="id_reference_link">Reference Link </label>
+            <input class="input setting-input edit-display-name" id="id_reference_link" value="{{ reference_link }}" type="text">
+          </div>
+      </li>
+      <li class="field comp-setting-entry is-set">
+          <div class="wrapper-comp-setting">
+            <label class="label setting-label" for="id_reference_type">Reference Type</label>
+            <select  class="field-data-control" id="id_reference_type" name="reference_type" value="{{ reference_type }}">
+              <option value="IMAGE">IMAGE</option>
+              <option value="LINK">LINK</option>
+              <option value="AUDIO">AUDIO</option>
+              <option value="DOCUMENT">DOCUMENT</option>
           </select>
-        </li>
-        <li>
-          <label>Reference Status</label>
-          <select id="id_reference_status" name="reference_status" value="{{ reference_status }}">
+      </li>
+      <li class="field comp-setting-entry is-set">
+          <div class="wrapper-comp-setting">
+            <label class="label setting-label" for="id_reference_status">Reference Status</label>
+          <select class="field-data-control" id="id_reference_status" name="reference_status" value="{{ reference_status }}">
               <option value="Available">Available</option>
               <option value="Not Available">Not Available</option>
-          </select>
-        </li>
-    </ol>
-    <div>
-      <button type="submit" id="submit" name="submit" class="action action-primary">Create Reference</button>
-    </div>
-    </fieldset>
-</article>
+          </select>  
+            
+      </li>
+  </ul>
+  <div class="xblock-actions">
+    <span class="xblock-editor-error-message"></span>
+    <ul>
+      <li class="action-item">
+        <button id="submit" class="button action-primary save-button">{% trans "Save" %}</button>
+      </li>
+
+      <li class="action-item">
+        <button class="button cancel-button">{% trans "Cancel" %}</a>
+      </li>
+    </ul>
+  </div>
+</div>
