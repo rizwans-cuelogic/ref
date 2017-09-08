@@ -22,6 +22,7 @@ function RefXBlock(runtime, element) {
     });
 
     $( "#submit" ).click(function() {
+        
         reference_name = $('#id_reference_name').val()
         reference_type = $('#id_reference_type').val()
         reference_description = $('#id_reference_description').val()
@@ -33,8 +34,8 @@ function RefXBlock(runtime, element) {
         data.reference_description=reference_description
         data.reference_status=reference_status 
         data.reference_link = reference_link
-        if (reference_name == '' || reference_link == '' || reference_description == ''){
-            return 
+        if (reference_name == '' || reference_link == ''){
+            return ;
         }   
         $.ajax({
             type: "POST",
