@@ -23,6 +23,8 @@ function RefXBlock(runtime, element) {
 
     $( "#submit" ).click(function() {
         
+        var error_one = 0
+        var error_two = 0
         reference_name = $('#id_reference_name').val()
         reference_type = $('#id_reference_type').val()
         reference_description = $('#id_reference_description').val()
@@ -36,18 +38,32 @@ function RefXBlock(runtime, element) {
         data.reference_link = reference_link
         if (reference_name == '')
         {
-            $("#id_reference_name").after("<span style='color:red;margin-top:5px;display:block'>Name is required</p>");
-            return ;
+            if ($("#id_reference_name").next(".error-message").length == 0){
+                $("#id_reference_name").after("<span class='error-message'>Name is required.</p>");
+            }
+            $( "#id_reference_name" ).focus();
+            error_one = 1;
         }   
         if(reference_link == ''){
-            $("#id_reference_link").after("<span style='color:red;margin-top:5px;display:block'>Link is required</p>");
+            if ($("#id_reference_link").next(".error-message").length == 0){
+                $("#id_reference_link").after("<span class='error-message'>Link is required.</p>");
+            }
+            $( "#id_reference_link" ).focus();
+            error_two =1;
+        }
+        if( error_one == 0){
+            $("#id_reference_name").next(".error-message").remove();
+        }
+        if( error_two == 0){
+            $("#id_reference_link").next(".error-message").remove();
+        }
+        if(error_one && error_two){
+            $( "#id_reference_name" ).focus();
+        }
+        
+        if( error_one || error_two){
             return ;
-        } 
-        if (reference_name == '' || reference_link == ''){
-            $("#id_reference_name").after("<span style='color:red;margin-top:5px;display:block;'>Name is required</p>");
-            $("#id_reference_link").after("<span style='color:red;margin-top:5px;display:block;'>Link is required</p>");
-            return ;
-        }   
+        }
         $.ajax({
             type: "POST",
             url: handlerUrl1,

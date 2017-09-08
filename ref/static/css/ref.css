@@ -7,3 +7,10 @@
 .ref_block p {
     cursor: pointer;
 }
+span.error-message{
+	font-size: 12px;
+    margin-left: 244px;
+    color:red;
+    margin-top:5px;
+    display:block;
+}
