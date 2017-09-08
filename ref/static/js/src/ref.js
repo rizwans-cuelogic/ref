@@ -30,9 +30,12 @@ function RefXBlock(runtime, element) {
         data={}
         data.reference_name=reference_name 
         data.reference_type=reference_type 
-        data.reference_description=reference_description 
+        data.reference_description=reference_description
         data.reference_status=reference_status 
-        data.reference_link = reference_link  
+        data.reference_link = reference_link
+        if (reference_name == '' || reference_link == '' || reference_description == ''){
+            return 
+        }   
         $.ajax({
             type: "POST",
             url: handlerUrl1,

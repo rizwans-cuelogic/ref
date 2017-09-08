@@ -1,11 +1,11 @@
 b {
     font-family: monospace;
+    color: #000000;
 }
-
-p {
-    font-family: sans-serif;
-}
-
 h1.margin-left {
     font-family: inherit;
+}
+
+ol{
+	list-style:none;
 }
