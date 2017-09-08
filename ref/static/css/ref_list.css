@@ -11,6 +11,8 @@ ol{
 }
 p{
 	color: #000000;
-	font-size:small;
-	font-style: normal;
+	font-size:15px;
+	font-family: Arial, sans-serif;
+	letter-spacing: normal;
+	text-transform: initial;
 }

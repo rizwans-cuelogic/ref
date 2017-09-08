@@ -18,10 +18,6 @@ class RefXBlock(XBlock):
     # self.<fieldname>.
 
     # TO-DO: delete count, and define your own fields.
-    count = Integer(
-        default=0, scope=Scope.user_state,
-        help="A simple counter, to show something happening",
-    )
     reference_name = String(display_name = "Reference Name",default=None,Scope=Scope.content)
     reference_type = String(display_name = "Reference Type",default=None,Scope=Scope.content )
     reference_link = String(display_name = "Reference Link",default=None,Scope=Scope.content)
@@ -94,16 +90,6 @@ class RefXBlock(XBlock):
 
     # TO-DO: change this handler to perform your own actions.  You may need more
     # than one handler, or you may not need any handlers at all.
-    @XBlock.json_handler
-    def increment_count(self, data, suffix=''):
-        """
-        An example handler, which increments the data.
-        """
-        # Just to show data coming in...
-        assert data['hello'] == 'world'
-
-        self.count += 1
-        return {"count": self.count}
 
     # TO-DO: change this to create the scenarios you'd like to see in the
     # workbench while developing your XBlock.
