@@ -14,3 +14,6 @@ span.error-message{
     margin-top:5px;
     display:block;
 }
+ol.or-list{
+	padding-left:0px;
+}

@@ -1,21 +1,19 @@
 {% autoescape off %}
 <div>
-  <section class="content">
+  <section>
     <article class="content-primary" role="main">
         <fieldset class="background-white">
         <h2>Reference<h2>
-        <ol class="reference-list">
+        <ol class="or-list">
             <li class="field-list">
               <b>Name:</b><p>{{ reference_name }}</p>
             </li>
             <li class="field-list" >
               <b>Link:</b><p><a href="{{ reference_link }}">{{ reference_link }}</a></p>
             </li>
-            {% if reference_description %}
             <li class="field-list">
               <b>Description:</b><p>{{ reference_description}}</p>
             </li>
-            {% endif %}
         </ol>
         </fieldset>
     </article>
