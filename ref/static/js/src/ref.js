@@ -34,7 +34,18 @@ function RefXBlock(runtime, element) {
         data.reference_description=reference_description
         data.reference_status=reference_status 
         data.reference_link = reference_link
+        if (reference_name == '')
+        {
+            $("#id_reference_name").after("<span style='color:red;margin-top:5px;display:block'>Name is required</p>");
+            return ;
+        }   
+        if(reference_link == ''){
+            $("#id_reference_link").after("<span style='color:red;margin-top:5px;display:block'>Link is required</p>");
+            return ;
+        } 
         if (reference_name == '' || reference_link == ''){
+            $("#id_reference_name").after("<span style='color:red;margin-top:5px;display:block;'>Name is required</p>");
+            $("#id_reference_link").after("<span style='color:red;margin-top:5px;display:block;'>Link is required</p>");
             return ;
         }   
         $.ajax({

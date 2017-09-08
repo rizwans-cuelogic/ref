@@ -1,5 +1,5 @@
 {% autoescape off %}
-<div class="wrapper-content wrapper">
+<div>
   <section class="content">
     <article class="content-primary" role="main">
         <fieldset class="background-white">
@@ -11,9 +11,11 @@
             <li class="field-list" >
               <b>Link:</b><p><a href="{{ reference_link }}">{{ reference_link }}</a></p>
             </li>
+            {% if reference_description %}
             <li class="field-list">
               <b>Description:</b><p>{{ reference_description}}</p>
             </li>
+            {% endif %}
         </ol>
         </fieldset>
     </article>

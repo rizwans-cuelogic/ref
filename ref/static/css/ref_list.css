@@ -9,3 +9,8 @@ h1.margin-left {
 ol{
 	list-style:none;
 }
+p{
+	color: #000000;
+	font-size:small;
+	font-style: normal;
+}
