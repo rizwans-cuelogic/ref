@@ -16,3 +16,9 @@ p{
 	letter-spacing: normal;
 	text-transform: initial;
 }
+ol.or-list{
+	padding-left:0px;
+}
+section.content {
+	padding:0px;
+}
